@@ -18,6 +18,7 @@ http://www.tipue.com/search
                'showURL'                : true,
                'showTitleCount'         : true,
                'minimumLength'          : 3,
+               'everyKey'               : true,
                'descriptiveWords'       : 25,
                'highlightTerms'         : true,
                'highlightEveryTerm'     : false,
@@ -105,9 +106,13 @@ http://www.tipue.com/search
                
                $(this).keyup(function(event)
                {
-                    if(event.keyCode == '13')
-                    {
-                         getTipueSearch(0, true);
+                    if (set.everyKey) {
+                         getTipueSearch(0, true);     
+                    } else {
+                         if(event.keyCode == '13')
+                         {
+                              getTipueSearch(0, true);
+                         }
                     }
                });
                
